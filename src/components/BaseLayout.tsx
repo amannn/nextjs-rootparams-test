@@ -14,8 +14,11 @@ export default async function BaseLayout({
         <div className="flex justify-between">
           <nav className="flex gap-4 py-4">
             <Link href="/">/</Link>
-            <Link href={`/${locale}`}>/{locale}</Link>
-            <Link href={`/${locale}/foo`}>/{locale}/foo</Link>
+            <Link href="/test">/test</Link>
+            <Link href="/en">/en</Link>
+            <Link href="/de">/de</Link>
+            <Link href="/en/foo">/en/foo</Link>
+            <Link href="/de/foo">/de/foo</Link>
           </nav>
         </div>
         {children}

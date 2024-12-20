@@ -1,8 +1,7 @@
 import type {Metadata} from 'next';
-import {getLocale} from '@/utils/getLocale';
-import Link from 'next/link.js';
-import {routing} from '@/config';
 import BaseLayout from '@/components/BaseLayout';
+import {routing} from '@/config';
+import {notFound} from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,21 +14,20 @@ export function generateStaticParams() {
 export const dynamicParams = false;
 
 export default async function RootLayout({
-  children
+  children,
+  params
 }: {
   children: React.ReactNode;
+  params: Promise<{locale: string}>;
 }) {
-  const locale = await getLocale();
+  // (Only necessary when `dynamicParams = false` is commented out)
+  if (!routing.locales.includes((await params).locale)) {
+    notFound();
+  }
 
   return (
     <BaseLayout>
       <main>{children}</main>
-      <Link
-        className="mt-4 inline-block"
-        href={`/${locale === 'en' ? 'de' : 'en'}`}
-      >
-        Go to /{locale === 'en' ? 'de' : 'en'}
-      </Link>
     </BaseLayout>
   );
 }
