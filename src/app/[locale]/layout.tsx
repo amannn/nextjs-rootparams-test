@@ -23,12 +23,6 @@ export default async function RootLayout({
 
   return (
     <BaseLayout>
-      <div className="flex justify-between">
-        <nav className="flex gap-4 py-4">
-          <Link href={`/${locale}`}>Home</Link>
-          <Link href={`/${locale}/foo`}>Foo</Link>
-        </nav>
-      </div>
       <main>{children}</main>
       <Link
         className="mt-4 inline-block"
