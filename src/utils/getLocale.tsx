@@ -1,8 +1,8 @@
 import {Locale, routing} from '@/config';
-import {unstable_rootParams as rootParams} from 'next/server';
+import * as rootParams from 'next/root-params';
 
 export async function getLocale() {
-  const {locale} = await rootParams();
+  const locale = await rootParams.locale();
   console.log('`locale` from `rootParams`: ', locale);
 
   if (!isLocale(locale)) {
