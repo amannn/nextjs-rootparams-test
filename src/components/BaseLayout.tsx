@@ -15,6 +15,7 @@ export default async function BaseLayout({
           <nav className="flex gap-4 py-4">
             <Link href="/">/</Link>
             <Link href="/test">/test</Link>
+            <Link href="/test2">/test2</Link>
             <Link href="/en">/en</Link>
             <Link href="/de">/de</Link>
             <Link href="/en/foo">/en/foo</Link>
